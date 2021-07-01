@@ -1,0 +1,33 @@
+# React Application Boilerplate
+
+My variant of [Jubic's React Starter](https://github.com/jubicoy). This repository tries to keep up with latest versions of the dependencies. This repository also includes few design architectures.
+
+# Contents
+
+This boilerplate is for React web applications that are written in Typescript. Code is using Babel and Webpack. For static code tests, we use typescript and eslint with [jubic-eslint-styles](https://github.com/jubicoy/eslint-config-jubic-typescript).
+
+## Base structure:
+* **React 17.*** with JSX Transform
+* **Typescript 4.3.***
+* **Webpack 5.***
+* **Babel 7.***
+* **Eslint 7.***
+
+## UI packages:
+* **@material-ui/core** & **@material-ui/lab** packages for UI building.
+* **@material-ui/pickers** for date component.
+* **notistack** for user friendly notifications.
+* **mdi-material-ui** for icons. Alternatively you can use **@material-ui/icons**.
+
+## API, Forms and Util packages:
+* **formik** for user friendly forms & **yup** for form validation.
+* **react-query** for handling and caching API calls.
+* **moment** for date handling.
+
+# Project structure
+
+TODO
+
+# Architecture
+
+TODO
