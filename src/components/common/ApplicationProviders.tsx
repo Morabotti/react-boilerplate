@@ -1,16 +1,11 @@
 import { FC } from 'react';
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import { LocalizationProvider } from '@mui/lab';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import MomentUtils from '@date-io/moment';
-import moment from 'moment';
+import { ThemeProvider } from '@mui/material/styles';
+import { StylesProvider, createGenerateClassName } from '@mui/styles';
+import { CssBaseline } from '@mui/material';
+import DateAdapter from '@mui/lab/AdapterMoment';
 import theme from '@theme';
-
-import {
-  MuiThemeProvider,
-  CssBaseline,
-  StylesProvider,
-  createGenerateClassName
-} from '@material-ui/core';
 
 const className = createGenerateClassName({
   productionPrefix: 'r'
@@ -34,18 +29,14 @@ interface Props {
 export const ApplicationProviders: FC<Props> = ({ children }: Props) => {
   return (
     <StylesProvider injectFirst generateClassName={className}>
-      <MuiThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
         <CssBaseline />
-        <MuiPickersUtilsProvider
-          locale='en'
-          libInstance={moment}
-          utils={MomentUtils}
-        >
+        <LocalizationProvider locale='en' dateAdapter={DateAdapter}>
           <QueryClientProvider client={queryClient}>
             {children}
           </QueryClientProvider>
-        </MuiPickersUtilsProvider>
-      </MuiThemeProvider>
+        </LocalizationProvider>
+      </ThemeProvider>
     </StylesProvider>
   );
 };

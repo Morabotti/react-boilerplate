@@ -1,8 +1,12 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme, Theme } from '@mui/material/styles';
 
 import palette from './palette';
 
-const theme = createMuiTheme({
+declare module '@mui/styles' {
+  type DefaultTheme = Theme;
+}
+
+const theme = createTheme({
   palette,
   zIndex: {
     appBar: 1200,

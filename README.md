@@ -14,10 +14,9 @@ This boilerplate is for React web applications that are written in Typescript. C
 * **Eslint 7.***
 
 ### UI packages:
-* **@material-ui/core** & **@material-ui/lab** packages for UI building.
-* **@material-ui/pickers** for date component.
+* **@mui/material** & **@mui/lab** 5.* Material UI for packages for UI building.
 * **notistack** for user friendly notifications.
-* **mdi-material-ui** for icons. Alternatively you can use **@material-ui/icons**.
+* **mdi-material-ui** for icons. Alternatively you can use **@mui/icons**.
 
 ### API, Forms and Util packages:
 * **formik** for user friendly forms & **yup** for form validation.

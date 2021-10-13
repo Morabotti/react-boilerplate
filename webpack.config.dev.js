@@ -1,4 +1,4 @@
-const { ContextReplacementPlugin, HotModuleReplacementPlugin } = require('webpack');
+const { ContextReplacementPlugin } = require('webpack');
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -70,7 +70,6 @@ module.exports = {
       template: resolve('./src/index.html'),
       chunks: ['js']
     }),
-    new HotModuleReplacementPlugin(),
     new CopyWebpackPlugin({
       patterns: [{
         from: path.resolve(__dirname, 'public'),
@@ -86,9 +85,12 @@ module.exports = {
     },
     port: 8082,
     host: '0.0.0.0',
-    contentBase: resolve('./build'),
     hot: true,
-    disableHostCheck: true,
-    historyApiFallback: true
+    allowedHosts: 'all',
+    historyApiFallback: true,
+    static: {
+      directory: path.resolve(__dirname, "build"),
+      watch: true
+    }
   }
 };

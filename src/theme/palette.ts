@@ -1,4 +1,4 @@
-import { PaletteOptions } from '@material-ui/core/styles/createPalette';
+import { PaletteOptions } from '@mui/material/styles/createPalette';
 
 const white = '#fff';
 const black = '#000';
@@ -29,8 +29,7 @@ const palette: PaletteOptions = {
   text: {
     primary: 'rgba(0, 0, 0, 0.87)',
     secondary: 'rgba(0, 0, 0, 0.54)',
-    disabled: 'rgba(0, 0, 0, 0.38)',
-    hint: 'rgba(0, 0, 0, 0.38)'
+    disabled: 'rgba(0, 0, 0, 0.38)'
   },
   divider: 'rgba(0, 0, 0, 0.12)',
   background: {
