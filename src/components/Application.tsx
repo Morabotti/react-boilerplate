@@ -1,17 +1,16 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { ApplicationProviders } from '@components/common';
+import { MainView } from '@components/main';
 
 import '../index.less';
 
 const Application = () => (
   <ApplicationProviders>
     <BrowserRouter>
-      <Switch>
-        <Route path='/'>
-          <div>Application</div>
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path='/' element={<MainView />} />
+      </Routes>
     </BrowserRouter>
   </ApplicationProviders>
 );
