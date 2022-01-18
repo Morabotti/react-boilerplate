@@ -3,31 +3,23 @@ const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { resolveTsconfigPathsToAlias } = require('./webpack.utils.js')
-
-const directory = fs.realpathSync(process.cwd());
-const resolve = (relativePath) => path.resolve(directory, relativePath);
+const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const { resolveTsconfigPathsToAlias } = require('./webpack.utils.js');
 
 module.exports = {
   devtool: 'eval-cheap-module-source-map',
   mode: 'development',
   entry: {
-    'js': [
-      require.resolve('react-hot-loader/patch'),
-      resolve('src/index.tsx')
-    ]
+    main: './src/index.tsx'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
-    alias: {
-      ...resolveTsconfigPathsToAlias(),
-      'react-dom': '@hot-loader/react-dom'
-    }
+    alias: resolveTsconfigPathsToAlias()
   },
   output: {
     pathinfo: true,
     filename: '[name]/bundle.js',
-    path: resolve('build'),
+    path: path.resolve(__dirname, 'build'),
     publicPath: '/'
   },
   module: {
@@ -38,7 +30,7 @@ module.exports = {
         loader: require.resolve('babel-loader'),
         options: {
           cacheDirectory: true,
-          plugins: ['react-hot-loader/babel']
+          plugins: [require.resolve('react-refresh/babel')]
         }
       },
       {
@@ -46,8 +38,7 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader',
-          'less-loader',
-          'import-glob'
+          'less-loader'
         ]
       },
       {
@@ -58,17 +49,20 @@ module.exports = {
         ]
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf|svg|png)$/,
-        use: ['file-loader']
+        test: /\.(jpe?g|svg|png|gif|ico|eot|ttf|woff2?)(\?v=\d+\.\d+\.\d+)?$/i,
+        type: 'asset/resource',
       }
     ]
   },
+  optimization: {
+    runtimeChunk: 'single',
+  },
   plugins: [
+    new ReactRefreshPlugin(),
     new ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
     new HtmlWebpackPlugin({
       inject: true,
-      template: resolve('./src/index.html'),
-      chunks: ['js']
+      template: path.resolve(__dirname, './src/index.html')
     }),
     new CopyWebpackPlugin({
       patterns: [{

@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { hot } from 'react-hot-loader';
 import { ApplicationProviders } from '@components/common';
 import { MainView } from '@components/main';
 
@@ -15,4 +14,4 @@ const Application = () => (
   </ApplicationProviders>
 );
 
-export default hot(module)(Application);
+export default Application;

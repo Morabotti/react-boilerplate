@@ -27,23 +27,25 @@ module.exports = {
         options: {
           compact: true
         }
-      }, {
-        test: /\.(woff|woff2|eot|ttf|otf|svg|png)$/,
-        loader: 'file-loader'
-      }, {
+      },
+      {
         test: /\.css$/,
         use: [
           'style-loader',
           'css-loader'
         ]
-      }, {
+      },
+      {
         test: /\.less$/,
         use: [
           'style-loader',
           'css-loader',
-          'less-loader',
-          'import-glob'
+          'less-loader'
         ]
+      },
+      {
+        test: /\.(jpe?g|svg|png|gif|ico|eot|ttf|woff2?)(\?v=\d+\.\d+\.\d+)?$/i,
+        type: 'asset/resource',
       }
     ]
   },
