@@ -9,8 +9,8 @@ This starter uses **Node v16** and **npm 8.1.0**. With older versions, you may n
 This boilerplate is for React web applications that are written in Typescript. Code is using Babel and Webpack. For static code tests, we use typescript and eslint with [jubic-eslint-styles](https://github.com/jubicoy/eslint-config-jubic-typescript).
 
 ### Base structure:
-* **React 17.*** with JSX Transform
-* **Typescript 4.5.***
+* **React 18.*** with JSX Transform
+* **Typescript 4.7.***
 * **Webpack 5.***
 * **Babel 7.***
 * **Eslint 7.***
