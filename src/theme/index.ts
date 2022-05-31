@@ -16,6 +16,4 @@ const theme = createTheme({
   }
 });
 
-export { useCommonStyles } from './commonStyles';
-
 export default theme;
