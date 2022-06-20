@@ -2,14 +2,9 @@ import { FC } from 'react';
 import { LocalizationProvider } from '@mui/lab';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ThemeProvider } from '@mui/material/styles';
-import { StylesProvider, createGenerateClassName } from '@mui/styles';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, StyledEngineProvider } from '@mui/material';
 import DateAdapter from '@mui/lab/AdapterMoment';
 import theme from '@theme';
-
-const className = createGenerateClassName({
-  productionPrefix: 'r'
-});
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,7 +23,7 @@ interface Props {
 
 export const ApplicationProviders: FC<Props> = ({ children }: Props) => {
   return (
-    <StylesProvider injectFirst generateClassName={className}>
+    <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <LocalizationProvider locale='en' dateAdapter={DateAdapter}>
@@ -37,6 +32,6 @@ export const ApplicationProviders: FC<Props> = ({ children }: Props) => {
           </QueryClientProvider>
         </LocalizationProvider>
       </ThemeProvider>
-    </StylesProvider>
+    </StyledEngineProvider>
   );
 };

@@ -1,10 +1,6 @@
-import { createTheme, Theme } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 
 import palette from './palette';
-
-declare module '@mui/styles' {
-  type DefaultTheme = Theme;
-}
 
 const theme = createTheme({
   palette,
