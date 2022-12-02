@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { LocalizationProvider } from '@mui/lab';
+import { LocalizationProvider } from '@mui/x-date-pickers';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, StyledEngineProvider } from '@mui/material';
-import DateAdapter from '@mui/lab/AdapterMoment';
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import theme from '@theme';
 
 const queryClient = new QueryClient({
@@ -26,7 +26,7 @@ export const ApplicationProviders: FC<Props> = ({ children }: Props) => {
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <LocalizationProvider locale='en' dateAdapter={DateAdapter}>
+        <LocalizationProvider adapterLocale='en' dateAdapter={AdapterMoment}>
           <QueryClientProvider client={queryClient}>
             {children}
           </QueryClientProvider>

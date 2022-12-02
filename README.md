@@ -10,7 +10,7 @@ This boilerplate is for React web applications that are written in Typescript. C
 
 ### Base structure:
 * **React 18.*** with JSX Transform
-* **Typescript 4.7.***
+* **Typescript 4.9.***
 * **Webpack 5.***
 * **Babel 7.***
 * **Eslint 7.***
@@ -18,7 +18,7 @@ This boilerplate is for React web applications that are written in Typescript. C
 ### UI packages:
 * **@mui/material** & **@mui/lab** 5.* Material UI for packages for UI building.
 * **notistack** for user friendly notifications.
-* **mdi-material-ui** for icons. Alternatively you can use **@mui/icons**.
+* **@mui/icons-material** for icons.
 
 ### API, Forms and Util packages:
 * **formik** for user friendly forms & **yup** for form validation.
